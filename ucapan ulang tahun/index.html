@@ -696,6 +696,11 @@
             return { safeX, safeY, width: widest, height: totalH };
         }
 
+        // Pra-muat audio langsung di awal agar instan berbunyi serasi (tidak telat)
+        if (bgMusic) {
+            bgMusic.load();
+        }
+
         // KELAS TEKS KEMBANG API VEKTOR: LANGSUNG TURUN & HILANG PERLAHAN (TIDAK CUMA DIEM DI SITU!)
         class TextBurst {
             constructor(x, y, lines, color) {
@@ -710,17 +715,17 @@
                 this.state = 'blooming';
                 this.age = 0;
                 
-                // KECEPATAN STABIL, NYAMAN, SANTSI & LEBIH ADA JEDA DELAY AGAR ENAK DIBACA
+                // KECEPATAN STABIL, NYAMAN & ANGGUN
                 const isMobile = cw < 640;
-                this.vy = isMobile ? 0.75 : 0.90; // Kecepatan meluncur turun yang anggun, tenang & stabil
-                this.gravity = 0.004; // Gravitasi sangat lembut agar kecepatan konstan
+                this.vy = isMobile ? 0.70 : 0.85; // Kecepatan meluncur turun yang anggun, tenang & stabil
+                this.gravity = 0.003; // Gravitasi sangat lembut agar kecepatan konstan
                 this.driftPhase = Math.random() * Math.PI * 2;
-                this.driftSpeedX = (Math.random() - 0.5) * 0.30;
-                this.rotation = (Math.random() - 0.5) * 0.020;
-                this.rotSpeed = (Math.random() - 0.5) * 0.0010;
+                this.driftSpeedX = (Math.random() - 0.5) * 0.25;
+                this.rotation = (Math.random() - 0.5) * 0.015;
+                this.rotSpeed = (Math.random() - 0.5) * 0.0008;
                 
-                // Durasi hidup santai agar sempat dibaca tuntas (~3.3 detik total)
-                this.decayRate = 0.0075; 
+                // Durasi hidup bersih (~2.2 detik total agar tidak menumpuk di langit)
+                this.decayRate = 0.016; 
                 
                 // Partikel debu bintang berkilau yang mengikuti jejak kata turun
                 this.embers = [];
@@ -1129,10 +1134,10 @@
             // Luncurkan roket untuk kata saat ini (begitu mekar langsung melayang turun & memudar)
             rockets.push(new Rocket(startX, res.safeX, res.safeY, item.lines, item.color));
 
-            // 2. RAME & STABIL DENGAN JEDA DELAY SANTAI: ENAK DIBACA SEBELUM KATA BERIKUTNYA
-            // Jeda peluncuran antar kata: ~1080ms (di desktop) & ~1150ms (di HP)
-            // Dengan jeda ini, mata punya waktu membaca santai, dan langit tetap indah & seimbang!
-            const nextLaunchInterval = isMobile ? 1150 : 1080;
+            // 2. JEDA DELAY LEGA & SERASI: KATA TAMPIL BERGANTIAN SATU PER SATU DENGAN TENANG (TIDAK BERTUMPUK!)
+            // Jeda peluncuran antar kata: ~2200ms (di desktop) & ~2400ms (di HP)
+            // Dengan jeda ini, setiap kata tampil sendiri di langit, dibaca tuntas, lalu berganti anggun!
+            const nextLaunchInterval = isMobile ? 2400 : 2200;
 
             wishSequenceTimer = setTimeout(() => {
                 launchSequentialWish(idx + 1);
