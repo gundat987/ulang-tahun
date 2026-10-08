@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Happy Birthday Mba Diah - Best Mentor! 🎉</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Caveat:wght@700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-deep-blue: #030a1c;
+            --blue-accent: #00d2ff;
+            --purple-accent: #9d4edd;
+            --pink-accent: #ff4d8d;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            min-height: 100vh;
+            min-height: 100dvh;
+            background: linear-gradient(135deg, #020716 0%, #06173a 50%, #0a2155 100%);
+            font-family: 'Poppins', sans-serif;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        body.locked {
+            overflow: hidden;
+            touch-action: none;
+        }
+
+        /* Latar Belakang Bergerak Dinamis (Fluid Colorful Orbs) */
+        .ambient-background {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(45px);
+            opacity: 0.5;
+            will-change: transform;
+            transform: translateZ(0);
+            animation: floatOrb 16s infinite ease-in-out alternate;
+        }
+
+        .orb-1 {
+            width: 340px;
+            height: 340px;
+            background: radial-gradient(circle, #0077fe 0%, #00d2ff 65%, transparent 80%);
+            top: -8%;
+            left: 5%;
+            animation-duration: 15s;
+        }
+
+        .orb-2 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, #7928ca 0%, #ff0080 70%, transparent 80%);
+            bottom: 5%;
+            right: 5%;
+            animation-duration: 18s;
+            animation-delay: -4s;
+        }
+
+        .orb-3 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, #00f2fe 0%, #38bdf8 70%, transparent 80%);
+            top: 40%;
+            left: 35%;
+            animation-duration: 16s;
+            animation-delay: -7s;
+        }
+
+        .orb-4 {
+            width: 270px;
+            height: 270px;
+            background: radial-gradient(circle, #ffd166 0%, #ff007f 70%, transparent 80%);
+            top: 15%;
+            right: 12%;
+            animation-duration: 20s;
+            animation-delay: -3s;
+        }
+
+        @keyframes floatOrb {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(35px, -50px) scale(1.15); }
+            100% { transform: translate(-40px, 35px) scale(0.9); }
+        }
+
+        /* Teks Jelas, Tajam, Tidak Blur */
+        .title-text-clear {
+            font-weight: 900;
+            color: #ffffff;
+            text-shadow: 0 4px 16px rgba(0, 140, 255, 0.95), 0 2px 4px rgba(0, 0, 0, 0.9);
+            letter-spacing: 0.5px;
+        }
+
+        .badge-clear {
+            background: rgba(8, 25, 60, 0.88);
+            border: 1.5px solid #00d2ff;
+            box-shadow: 0 6px 22px rgba(0, 150, 255, 0.4);
+            color: #ffffff;
+        }
+
+        .gift-box {
+            filter: drop-shadow(0 10px 25px rgba(0, 210, 255, 0.7)) drop-shadow(0 0 35px rgba(255, 209, 102, 0.6));
+            animation: bounce-gift 2.2s infinite, float 3.5s ease-in-out infinite;
+            cursor: pointer;
+            transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            user-select: none;
+            touch-action: manipulation;
+        }
+
+        .gift-box:active, .gift-box:hover {
+            transform: scale(1.15) rotate(-3deg);
+            filter: drop-shadow(0 15px 35px rgba(0, 210, 255, 0.95)) drop-shadow(0 0 45px rgba(255, 215, 0, 0.9));
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-14px); }
+        }
+
+        @keyframes bounce-gift {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-16px); }
+            60% { transform: translateY(-8px); }
+        }
+
+        /* Polaroid Gallery Bergoyang Mengambang (2 Foto Ulang Tahun & Doa) */
+        .polaroid {
+            background: #ffffff;
+            padding: 12px 12px 20px 12px;
+            box-shadow: 0 16px 36px rgba(0, 5, 25, 0.7), 0 0 25px rgba(0, 150, 255, 0.35);
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            position: relative;
+            border-radius: 14px;
+            width: 100%;
+            max-width: 380px;
+            transform-origin: top center;
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Pin Penjepit Lucu di Atas Tiap Foto */
+        .polaroid::before {
+            content: '📌';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5rem;
+            z-index: 10;
+            filter: drop-shadow(0 3px 5px rgba(0,0,0,0.6));
+            pointer-events: none;
+        }
+
+        .polaroid img {
+            width: 100%;
+            height: 290px;
+            object-fit: cover;
+            border-radius: 10px;
+            display: block;
+            pointer-events: none;
+        }
+
+        /* Animasi Goyang-Goyang Berbeda Untuk Tiap Foto (Natural, Luwes, Tidak Serempak) */
+        .polaroid:nth-child(1) {
+            animation: polaroid-sway-1 4.2s ease-in-out infinite;
+        }
+        .polaroid:nth-child(2) {
+            animation: polaroid-sway-2 4.8s ease-in-out infinite;
+        }
+
+        @keyframes polaroid-sway-1 {
+            0%, 100% {
+                transform: rotate(-3.5deg) translateY(0px);
+            }
+            25% {
+                transform: rotate(-1deg) translateY(-8px);
+            }
+            50% {
+                transform: rotate(2.5deg) translateY(-2px);
+            }
+            75% {
+                transform: rotate(-0.5deg) translateY(6px);
+            }
+        }
+
+        @keyframes polaroid-sway-2 {
+            0%, 100% {
+                transform: rotate(3deg) translateY(-4px);
+            }
+            28% {
+                transform: rotate(-2deg) translateY(5px);
+            }
+            60% {
+                transform: rotate(3.5deg) translateY(-8px);
+            }
+            85% {
+                transform: rotate(0.5deg) translateY(2px);
+            }
+        }
+
+        /* Saat di-hover atau di-sentuh, foto fokus & membesar */
+        .polaroid:hover {
+            animation-play-state: paused !important;
+            transform: scale(1.05) rotate(0deg) translateY(-8px) !important;
+            z-index: 50;
+            box-shadow: 0 25px 50px rgba(0, 10, 40, 0.9), 0 0 35px rgba(0, 210, 255, 0.7);
+        }
+
+        /* Efek klik goyang asyik (jiggle/wobble) */
+        .polaroid.wobble-click {
+            animation: polaroid-jiggle 0.65s ease-in-out !important;
+        }
+
+        @keyframes polaroid-jiggle {
+            0% { transform: scale(1.05) rotate(0deg); }
+            20% { transform: scale(1.08) rotate(-7deg); }
+            40% { transform: scale(1.08) rotate(7deg); }
+            60% { transform: scale(1.06) rotate(-3deg); }
+            80% { transform: scale(1.06) rotate(3deg); }
+            100% { transform: scale(1.05) rotate(0deg); }
+        }
+
+        .polaroid-title {
+            font-family: 'Caveat', cursive;
+            color: #0f172a;
+            width: 100%;
+            text-align: center;
+            font-size: 1.55rem;
+            font-weight: 700;
+            margin-top: 12px;
+            line-height: 1.25;
+        }
+
+        .polaroid-caption {
+            font-family: 'Outfit', -apple-system, sans-serif;
+            color: #334155;
+            text-align: center;
+            font-size: 0.88rem;
+            line-height: 1.5;
+            margin-top: 8px;
+            padding: 9px 12px;
+            background: #f8fafc;
+            border-radius: 8px;
+            border: 1px dashed #cbd5e1;
+            font-weight: 500;
+        }
+
+        /* Pesan Surat Untuk Mentor Mba Diah */
+        .message-card {
+            background: rgba(5, 20, 50, 0.92);
+            border: 2px solid rgba(0, 210, 255, 0.45);
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.7), 0 0 35px rgba(0, 130, 255, 0.3);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .message-text {
+            color: #f1f5f9;
+            font-size: 0.98rem;
+            line-height: 1.85;
+            font-weight: 400;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+        }
+
+        @media (min-width: 640px) {
+            .message-text {
+                font-size: 1.05rem;
+            }
+        }
+
+        .fade-out {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        /* Indikator Musik */
+        .music-bar {
+            width: 3.5px;
+            background-color: #00d2ff;
+            border-radius: 2px;
+            animation: bounce-bar 0.9s infinite alternate ease-in-out;
+        }
+        .music-bar:nth-child(2) { animation-delay: 0.25s; }
+        .music-bar:nth-child(3) { animation-delay: 0.5s; }
+        
+        @keyframes bounce-bar {
+            0% { height: 4px; }
+            100% { height: 18px; }
+        }
+    </style>
+</head>
+<body class="antialiased locked">
+
+    <!-- Latar Belakang Bergerak (Fluid Colorful Orbs) -->
+    <div class="ambient-background">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="orb orb-4"></div>
+    </div>
+
+    <!-- Background Canvas untuk Bintang Gerak & Kembang Api Teks Berkilau -->
+    <canvas id="bg-stars-canvas" class="fixed inset-0 z-0 pointer-events-none"></canvas>
+    <canvas id="fireworks-canvas" class="fixed inset-0 z-10 pointer-events-none"></canvas>
+
+    <!-- Audio Player Lagu Ulang Tahun (Lagu Pilihan: Gellen Martadinata - Selamat Ulang Tahun) -->
+    <audio id="bg-music" loop preload="auto">
+        <source src="Gellen_Martadinata_-_Selamat_Ulang_Tahun_(mp3.pm).mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Layar Intro (Kado) -->
+    <div id="intro-screen" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#020716]/92 backdrop-blur-md transition-opacity duration-1000 px-4 min-h-[100dvh]">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full badge-clear mb-5">
+            <span class="inline-block w-2.5 h-2.5 rounded-full bg-cyan-400 animate-ping"></span>
+            <span class="text-xs uppercase tracking-widest font-bold">Special Birthday for Best Mentor 🌟</span>
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold mb-8 text-center title-text-clear px-2">
+            Happy Birthday Mba Diah! 🎂
+        </h1>
+        
+        <div id="gift" class="gift-box text-7xl sm:text-8xl md:text-9xl mb-8" title="Klik kado untuk membuka kejutan!">
+            🎁
+        </div>
+        
+        <div class="badge-clear px-5 py-2.5 rounded-full text-center max-w-sm animate-pulse">
+            <p class="text-white font-bold text-xs sm:text-sm tracking-wide">
+                👉 Ketuk kado untuk kejutan kembang api & musik 🔊
+            </p>
+        </div>
+    </div>
+
+    <!-- Indikator & Kontrol Musik (Top Right) -->
+    <div id="music-indicator-container" class="fixed top-4 right-4 z-40 opacity-0 invisible transition-opacity duration-700">
+        <button id="toggle-music-btn" class="message-card px-3.5 py-1.5 rounded-full flex items-center gap-2.5 cursor-pointer hover:border-cyan-400 transition-colors shadow-lg">
+            <span id="music-status-text" class="text-xs font-bold text-cyan-300">🎵 Musik Aktif</span>
+            <div class="flex gap-1 items-end h-4">
+                <div class="music-bar"></div>
+                <div class="music-bar"></div>
+                <div class="music-bar"></div>
+            </div>
+        </button>
+    </div>
+
+    <!-- Tombol Lihat Pesan Spesial -->
+    <div id="action-btn-container" class="fixed bottom-8 left-0 w-full flex justify-center z-40 opacity-0 invisible transition-all duration-1000 transform translate-y-10 px-4">
+        <button id="scroll-btn" class="w-full max-w-xs sm:w-auto px-7 py-3.5 bg-gradient-to-r from-cyan-500 to-blue-600 border-2 border-white/40 text-white rounded-full font-bold text-base flex items-center justify-center gap-2.5 hover:scale-105 active:scale-95 transition-all shadow-[0_0_30px_rgba(0,210,255,0.65)]">
+            <span>Lihat Pesan untuk Mba Diah</span>
+            <span class="text-lg">👇✨</span>
+        </button>
+    </div>
+
+    <!-- Konten Utama (Setelah Kado Dibuka) -->
+    <main id="main-content" class="relative z-20 hidden min-h-[100dvh] pt-16 pb-32 px-4 sm:px-6 lg:px-8">
+        
+        <div class="max-w-5xl mx-auto">
+            
+            <div class="text-center mb-12 animate-bounce">
+                <span class="inline-block px-4 py-1.5 rounded-full bg-blue-950/80 border border-cyan-400 text-cyan-300 font-bold text-xs sm:text-sm tracking-wider shadow-md">
+                    Scroll ke bawah yaa Mba Diah.. 👇
+                </span>
+            </div>
+
+            <!-- Galeri 2 Foto Ulang Tahun: Kue Lilin Menyala & Tangan Berdoa Make a Wish -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 mb-20 max-w-4xl mx-auto px-4 justify-items-center">
+                <!-- Foto 1: Kue Ulang Tahun & Lilin dengan Api Menyala -->
+                <div class="polaroid" title="Klik foto untuk goyang!">
+                    <img src="images/birthday_cake_candle.jpg" alt="Kue Ulang Tahun Lilin Menyala Mba Diah">
+                    <div class="polaroid-title">Happy Birthday & Tiup Lilin 🎂🕯️</div>
+                    <div class="polaroid-caption">
+                        "Selamat Ulang Tahun Mba Diah! 🌟 Semoga setiap nyala lilin ini membawa limpahan rezeki, kebahagiaan sejati, kesehatan yang prima, dan karir yang kian melesat gemilang!"
+                    </div>
+                </div>
+
+                <!-- Foto 2: Tangan Berdoa & Make a Wish Ulang Tahun -->
+                <div class="polaroid mt-4 md:mt-0" title="Klik foto untuk goyang!">
+                    <img src="images/birthday_prayer_wish.jpg" alt="Doa Tangan dan Harapan Ulang Tahun Mba Diah">
+                    <div class="polaroid-title">Make a Wish & Doa Tulus 🙏💫</div>
+                    <div class="polaroid-caption">
+                        "Doa & Harapan Tulus untuk Mba Diah: Semoga seluruh impian, keinginan, dan doa-doa terbaik yang tersimpan di hati segera dikabulkan. Bahagia selalu yaa Mba! 🤲💖"
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pesan Spesial Mentor Mba Diah (Hangat, Santai, Akrab, Tulus & Tidak Formal) -->
+            <div class="message-card rounded-2xl sm:rounded-3xl p-6 sm:p-10 md:p-14 text-center max-w-3xl mx-auto shadow-2xl relative overflow-hidden">
+                <div class="absolute -top-12 -left-12 w-40 h-40 bg-blue-500 rounded-full mix-blend-screen filter blur-3xl opacity-25 pointer-events-none"></div>
+                <div class="absolute -bottom-12 -right-12 w-40 h-40 bg-cyan-500 rounded-full mix-blend-screen filter blur-3xl opacity-25 pointer-events-none"></div>
+
+                <div class="inline-block px-4 py-1.5 rounded-full bg-cyan-950/80 border border-cyan-400 text-cyan-300 font-bold text-xs uppercase tracking-widest mb-4">
+                    ✨ Pesan & Doa Spesial Buat Mentor Ter-Asyik ✨
+                </div>
+
+                <h2 class="text-2xl sm:text-4xl md:text-5xl font-black mb-6 text-white drop-shadow-[0_3px_10px_rgba(0,180,255,0.7)] tracking-wide">
+                    Happy Birthday, Mba Diah! 🎂✨
+                </h2>
+                
+                <div class="message-text space-y-4 sm:space-y-6 text-left sm:text-center leading-relaxed">
+                    <p class="font-medium text-slate-100 text-sm sm:text-base">
+                        Happy Birthday yaa Mba Diah! 🎉🎂 Selamat bertambah usia buat mentor paling keren dan paling asyik! Makasih banyak yaa Mba udah selalu sabar banget ngebimbing. Nggak pernah pelit ilmu, selalu santai tapi solutif tiap kali nemu problem kerjaan yang bikin pusing haha. Serius, punya mentor kayak Mba Diah tuh rezeki banget buat tim kita!
+                    </p>
+                    <p class="font-medium text-slate-100 text-sm sm:text-base">
+                        Di hari yang spesial ini, doanya semoga Mba Diah selalu sehat, rezekinya makin lancar dan berkah, serta karirnya makin meroket naik! Semoga segala wishlist, goals, dan impian besar yang lagi Mba Diah perjuangkan bisa terwujud satu per satu dengan mulus. Pokoknya dimudahkan segala urusannya, baik kerjaan maupun rencana pribadi.
+                    </p>
+                    <p class="font-medium text-slate-100 text-sm sm:text-base">
+                        Tetep jadi Mba Diah yang selalu ceria, humble, dan ramah yaa! Kehadiran Mba Diah beneran bikin suasana kerja jadi berasa lebih hidup, kompak, dan kerjanya jadi seru. Di tengah rutinitas dan kesibukan yang padat, jangan lupa bahagia, tetap senyum, dan luangin waktu buat istirahat serta me-time yaa Mba!
+                    </p>
+                    <p class="font-medium text-slate-100 text-sm sm:text-base">
+                        Sekali lagi, Selamat Ulang Tahun Mba Diah! Semoga di usia yang baru ini makin banyak kebaikan, kebahagiaan, dan keberuntungan yang datang. You are truly the best mentor ever! 🚀🌟
+                    </p>
+                    <p class="pt-4 font-extrabold text-base sm:text-xl text-cyan-300 tracking-wider text-center drop-shadow-md">
+                        — Dari saya yang bangga punya mentor se-keren Mba Diah! Makasih banyak yaa Mba! 🙌🎉✨
+                    </p>
+                </div>
+
+                <div class="mt-10 pt-6 border-t border-blue-800/60 flex flex-col sm:flex-row justify-center items-center gap-3">
+                    <button id="extra-fireworks-btn" class="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold text-sm sm:text-base hover:scale-105 active:scale-95 transition-all shadow-[0_0_30px_rgba(0,210,255,0.6)] flex items-center justify-center gap-2.5">
+                        <span>🎆 Nyalakan Rentetan Kembang Api & Ucapan Lagi! 🚀</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        // Setup Elemen DOM
+        const introScreen = document.getElementById('intro-screen');
+        const giftBtn = document.getElementById('gift');
+        const actionBtnContainer = document.getElementById('action-btn-container');
+        const scrollBtn = document.getElementById('scroll-btn');
+        const mainContent = document.getElementById('main-content');
+        const bgMusic = document.getElementById('bg-music');
+        const musicIndicator = document.getElementById('music-indicator-container');
+        const toggleMusicBtn = document.getElementById('toggle-music-btn');
+        const musicStatusText = document.getElementById('music-status-text');
+        const extraFireworksBtn = document.getElementById('extra-fireworks-btn');
+
+        let isGiftOpened = false;
+        let isMusicPlaying = false;
+
+        // Setup Audio Synthesizer Cadangan
+        let audioCtx = null;
+        function playChimeMelody() {
+            try {
+                if (!audioCtx) {
+                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                }
+                if (audioCtx.state === 'suspended') {
+                    audioCtx.resume();
+                }
+                const notes = [
+                    {f: 261.63, d: 0.3}, {f: 261.63, d: 0.3}, {f: 293.66, d: 0.6}, {f: 261.63, d: 0.6}, {f: 349.23, d: 0.6}, {f: 329.63, d: 1.0},
+                    {f: 261.63, d: 0.3}, {f: 261.63, d: 0.3}, {f: 293.66, d: 0.6}, {f: 261.63, d: 0.6}, {f: 392.00, d: 0.6}, {f: 349.23, d: 1.0}
+                ];
+                let time = audioCtx.currentTime;
+                notes.forEach(note => {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(note.f, time);
+                    gain.gain.setValueAtTime(0.18, time);
+                    gain.gain.exponentialRampToValueAtTime(0.001, time + note.d);
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.start(time);
+                    osc.stop(time + note.d);
+                    time += note.d + 0.1;
+                });
+            } catch(e) {
+                console.log("Audio synth error:", e);
+            }
+        }
+
+        // Toggle Audio
+        toggleMusicBtn.addEventListener('click', () => {
+            if (isMusicPlaying) {
+                bgMusic.pause();
+                isMusicPlaying = false;
+                musicStatusText.textContent = "🔇 Musik Jeda";
+            } else {
+                bgMusic.play().then(() => {
+                    isMusicPlaying = true;
+                    musicStatusText.textContent = "🎵 Musik Aktif";
+                }).catch(() => {
+                    playChimeMelody();
+                    isMusicPlaying = true;
+                    musicStatusText.textContent = "🎵 Melodi Aktif";
+                });
+            }
+        });
+
+        // ================= BACKGROUND ANIMASI BINTANG =================
+        const starCanvas = document.getElementById('bg-stars-canvas');
+        const sCtx = starCanvas.getContext('2d');
+        let sw = window.innerWidth;
+        let sh = window.innerHeight;
+        starCanvas.width = sw;
+        starCanvas.height = sh;
+
+        const stars = [];
+        const STAR_COUNT = Math.min(85, Math.floor(window.innerWidth / 7));
+        const starColors = ['#00d2ff', '#ffffff', '#70a1ff', '#ff9ff3', '#ffeaa7', '#38bdf8'];
+
+        for (let i = 0; i < STAR_COUNT; i++) {
+            stars.push({
+                x: Math.random() * sw,
+                y: Math.random() * sh,
+                size: Math.random() * 2.2 + 0.8,
+                color: starColors[Math.floor(Math.random() * starColors.length)],
+                speedY: -(Math.random() * 0.35 + 0.12),
+                speedX: (Math.random() - 0.5) * 0.2,
+                alpha: Math.random() * 0.7 + 0.3,
+                pulseSpeed: Math.random() * 0.03 + 0.01
+            });
+        }
+
+        function animateBackgroundStars() {
+            sCtx.clearRect(0, 0, sw, sh);
+
+            for (let i = 0; i < stars.length; i++) {
+                const s = stars[i];
+                s.y += s.speedY;
+                s.x += s.speedX;
+                s.alpha += Math.sin(Date.now() * s.pulseSpeed) * 0.015;
+                if (s.alpha < 0.2) s.alpha = 0.2;
+                if (s.alpha > 1) s.alpha = 1;
+
+                if (s.y < 0) {
+                    s.y = sh + 10;
+                    s.x = Math.random() * sw;
+                }
+                if (s.x < 0) s.x = sw;
+                if (s.x > sw) s.x = 0;
+
+                sCtx.beginPath();
+                sCtx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
+                sCtx.fillStyle = s.color;
+                sCtx.globalAlpha = s.alpha;
+                sCtx.fill();
+            }
+
+            requestAnimationFrame(animateBackgroundStars);
+        }
+        animateBackgroundStars();
+
+        // ================= KEMBANG API TEKS DINAMIS (2, 3, ATAU 4 KATA, SLOWMOTION, NO DELAY) =================
+        const canvas = document.getElementById('fireworks-canvas');
+        const ctx = canvas.getContext('2d');
+        let cw = window.innerWidth;
+        let ch = window.innerHeight;
+        
+        function resizeCanvas() {
+            cw = window.innerWidth;
+            ch = window.innerHeight;
+            sw = window.innerWidth;
+            sh = window.innerHeight;
+            
+            canvas.width = cw;
+            canvas.height = ch;
+            starCanvas.width = sw;
+            starCanvas.height = sh;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        let particles = [];
+        let textBursts = [];
+        let rockets = [];
+
+        const vibrantColors = [
+            '#00f2fe', '#00ff88', '#ffd700', '#ff007f', '#c77dff', 
+            '#38bdf8', '#ffb703', '#ffffff', '#ff0055', '#70e000', '#f72585', '#4cc9f0'
+        ];
+
+        // DAFTAR SELURUH UCAPAN UNTUK MBA DIAH (ESTAFET BERUNTUN: RAME, MELAYANG TURUN, HILANG PERLAHAN)
+        const allWishItems = [
+            { lines: ["MBA DIAH"], color: "#00f2fe" },
+            { lines: ["SELAMAT", "ULANG TAHUN"], color: "#ffd700" },
+            { lines: ["SEMOGA MAKIN", "BERUNTUNG"], color: "#00ff88" },
+            { lines: ["SELALU SENYUM", "YAA MBA"], color: "#ff007f" },
+            { lines: ["SELALU BAIK", "& RAMAH"], color: "#c77dff" },
+            { lines: ["REZEKI LANCAR"], color: "#ffd700" },
+            { lines: ["SELALU SEHAT"], color: "#00f2fe" },
+            { lines: ["SEHAT SELALU"], color: "#70e000" },
+            { lines: ["TETAP BERSINAR"], color: "#ff9ff3" },
+            { lines: ["MENTOR", "TERBAIK"], color: "#ffb703" },
+            { lines: ["MAKIN SUKSES", "KARIRNYA"], color: "#38bdf8" },
+            { lines: ["SEMUA IMPIAN", "TERWUJUD"], color: "#38bdf8" },
+            { lines: ["DIPERMUDAH", "SEGALA URUSAN"], color: "#ffd700" },
+            { lines: ["BAHAGIA", "SETIAP HARI"], color: "#f72585" },
+            { lines: ["PANJANG UMUR"], color: "#f72585" },
+            { lines: ["PENUH BERKAH"], color: "#ffd700" },
+            { lines: ["INSPIRASI TIM"], color: "#00f2fe" },
+            { lines: ["HEBAT TERUS"], color: "#00ff88" },
+            { lines: ["YOU ARE THE BEST", "MENTOR!"], color: "#ffd700" },
+            { lines: ["TERIMA KASIH", "MBA DIAH!"], color: "#ff007f" },
+            { lines: ["KARIR MELESAT", "TINGGI"], color: "#00ff88" },
+            { lines: ["SELALU CERIA", "& HUMBLE"], color: "#ffb703" },
+            { lines: ["SELAMAT ULANG", "TAHUN MBA DIAH!"], color: "#f72585" }
+           
+        ];
+
+        // ZONA LEDAKAN MENYEBAR DI SEPERTIGA ATAS LANGIT (AGAR LEGA MELAYANG TURUN KE BAWAH)
+        const desktopZones = [
+            { x: 0.18, y: 0.17 }, // Kiri Atas
+            { x: 0.82, y: 0.17 }, // Kanan Atas
+            { x: 0.50, y: 0.19 }, // Tengah Atas
+            { x: 0.25, y: 0.25 }, // Kiri Tengah
+            { x: 0.75, y: 0.25 }, // Kanan Tengah
+            { x: 0.36, y: 0.18 }, // Kiri Tengah Atas
+            { x: 0.64, y: 0.18 }, // Kanan Tengah Atas
+            { x: 0.50, y: 0.27 }  // Tengah
+        ];
+
+        function getNextScatteredPosition(idx, isMobile) {
+            if (isMobile) {
+                // Di HP: area atas agar leluasa melayang turun & tidak tabrakan
+                const mobileSlots = [
+                    { y: 0.16, x: 0.47 },
+                    { y: 0.24, x: 0.53 },
+                    { y: 0.18, x: 0.45 },
+                    { y: 0.26, x: 0.54 },
+                    { y: 0.15, x: 0.49 },
+                    { y: 0.22, x: 0.48 }
+                ];
+                const base = mobileSlots[idx % mobileSlots.length];
+                return {
+                    x: Math.max(0.24, Math.min(0.76, base.x + (Math.random() - 0.5) * 0.08)),
+                    y: Math.max(0.14, Math.min(0.28, base.y + (Math.random() - 0.5) * 0.04))
+                };
+            } else {
+                const base = desktopZones[idx % desktopZones.length];
+                return {
+                    x: Math.max(0.18, Math.min(0.82, base.x + (Math.random() - 0.5) * 0.06)),
+                    y: Math.max(0.15, Math.min(0.28, base.y + (Math.random() - 0.5) * 0.04))
+                };
+            }
+        }
+
+        // PENGHITUNG POSISI AMAN (SAFE CLAMPING): REUSABLE MEASURE & MENCEGAH TERPOTONG
+        const measureCanvas = document.createElement('canvas');
+        const measureCtx = measureCanvas.getContext('2d');
+
+        function getSafeTextCoordinates(rawX, rawY, lines, isMobile) {
+            let fontSize = isMobile ? 32 : 52;
+            if (lines.some(l => l.length > 13)) {
+                fontSize = isMobile ? 24 : 40;
+            } else if (lines.some(l => l.length > 9)) {
+                fontSize = isMobile ? 28 : 46;
+            }
+            measureCtx.font = `900 ${fontSize}px 'Poppins', Arial, sans-serif`;
+            
+            let widest = 0;
+            lines.forEach(l => {
+                const m = measureCtx.measureText(l).width;
+                if (m > widest) widest = m;
+            });
+
+            const lineHeight = fontSize * 1.25;
+            const totalH = lines.length * lineHeight;
+            const pad = 20;
+            const halfW = widest / 2 + pad;
+            const halfH = totalH / 2 + pad;
+
+            const minX = halfW + (isMobile ? 12 : 25);
+            const maxX = cw - halfW - (isMobile ? 12 : 25);
+            const minY = halfH + (isMobile ? 45 : 55);
+            const maxY = ch * 0.40; // Batasi ledakan di 40% atas agar ada ruang lega untuk meluncur turun!
+
+            const safeX = Math.max(minX, Math.min(maxX, rawX));
+            const safeY = Math.max(minY, Math.min(maxY, rawY));
+
+            return { safeX, safeY, width: widest, height: totalH };
+        }
+
+        // KELAS TEKS KEMBANG API VEKTOR: LANGSUNG TURUN & HILANG PERLAHAN (TIDAK CUMA DIEM DI SITU!)
+        class TextBurst {
+            constructor(x, y, lines, color) {
+                this.x = x;
+                this.y = y;
+                this.lines = Array.isArray(lines) ? lines : [lines];
+                this.color = color;
+                
+                this.scale = 0.35;
+                this.scaleProgress = 0;
+                this.alpha = 1.0;
+                this.state = 'blooming';
+                this.age = 0;
+                
+                // KECEPATAN STABIL, NYAMAN, TIDAK TERLALU CEPAT & JELAS TERBACA
+                const isMobile = cw < 640;
+                this.vy = isMobile ? 0.95 : 1.15; // Kecepatan meluncur turun awal yang tenang & stabil
+                this.gravity = 0.006; // Gravitasi sangat halus agar kecepatannya tetap stabil
+                this.driftPhase = Math.random() * Math.PI * 2;
+                this.driftSpeedX = (Math.random() - 0.5) * 0.35;
+                this.rotation = (Math.random() - 0.5) * 0.025;
+                this.rotSpeed = (Math.random() - 0.5) * 0.0012;
+                
+                // Durasi hidup nyaman agar sempat terbaca jelas (~2.7 detik total)
+                this.decayRate = 0.0085; 
+                
+                // Partikel debu bintang berkilau yang mengikuti jejak kata turun
+                this.embers = [];
+                const count = isMobile ? 16 : 24;
+                for (let i = 0; i < count; i++) {
+                    this.embers.push({
+                        x: this.x + (Math.random() - 0.5) * (isMobile ? 150 : 250),
+                        y: this.y + (Math.random() - 0.5) * 40,
+                        vx: (Math.random() - 0.5) * 0.7,
+                        vy: Math.random() * 0.9 + 0.4,
+                        color: Math.random() > 0.3 ? this.color : '#ffffff',
+                        size: Math.random() * 2.0 + 1.0,
+                        alpha: 1.0
+                    });
+                }
+            }
+
+            update() {
+                this.age++;
+
+                if (this.state === 'blooming') {
+                    // Mekar cepat & mulus (~10 frame = ~0.16 detik)
+                    this.scaleProgress += 0.12;
+                    const p = Math.min(1.0, this.scaleProgress);
+                    const popFactor = 1.0 + 0.06 * Math.sin(p * Math.PI);
+                    this.scale = (0.35 + 0.65 * p) * popFactor;
+
+                    if (this.scaleProgress >= 1.0) {
+                        this.scale = 1.0;
+                        this.state = 'drifting';
+                    }
+                }
+
+                // MELAYANG TURUN KE BAWAH DENGAN KECEPATAN STABIL (TIDAK TERLALU CEPAT)
+                this.vy += this.gravity;
+                this.y += this.vy;
+                
+                // Ayunan angin horizontal lembut & luwes
+                this.x += Math.sin(this.age * 0.035 + this.driftPhase) * 0.45 + this.driftSpeedX;
+                this.rotation += this.rotSpeed;
+
+                // BERI WAKTU MEMBACA NYAMAN (FRAME > 45 = ~0.75 DETIK SOLID), LALU MEMUDAR PERLAHAN
+                if (this.age > 45) {
+                    this.alpha -= this.decayRate;
+                }
+
+                // Partikel debu bintang jatuh di belakang kata
+                for (let i = this.embers.length - 1; i >= 0; i--) {
+                    const em = this.embers[i];
+                    em.x += em.vx;
+                    em.y += em.vy;
+                    em.vy += 0.008;
+                    em.alpha -= 0.010;
+                    if (em.alpha <= 0) this.embers.splice(i, 1);
+                }
+            }
+
+            startSlowMotionDissolve() {
+                if (this.alpha > 0.5) {
+                    this.alpha = 0.5;
+                }
+                this.decayRate = 0.025;
+                this.vy += 0.8;
+            }
+
+            draw() {
+                if (this.alpha <= 0) return;
+                const isMobile = cw < 640;
+
+                ctx.save();
+                ctx.globalAlpha = Math.max(0, this.alpha);
+                
+                // Posisi x, y yang terus melayang turun secara nyata
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.rotation);
+                ctx.scale(this.scale, this.scale);
+
+                // Ukuran font yang besar, tegas, dan ultra-tajam
+                let fontSize = isMobile ? 32 : 52;
+                if (this.lines.some(l => l.length > 13)) {
+                    fontSize = isMobile ? 24 : 40;
+                } else if (this.lines.some(l => l.length > 9)) {
+                    fontSize = isMobile ? 28 : 46;
+                }
+
+                ctx.font = `900 ${fontSize}px 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif`;
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+
+                const lineHeight = fontSize * 1.25;
+                const totalH = this.lines.length * lineHeight;
+                const startY = -(totalH / 2) + lineHeight / 2;
+
+                const glowPulse = 14 + Math.sin(this.age * 0.08) * 3.0;
+
+                this.lines.forEach((line, idx) => {
+                    const lineY = startY + idx * lineHeight;
+
+                    // 1. Lapisan Aura Neon Terluar
+                    ctx.shadowColor = this.color;
+                    ctx.shadowBlur = glowPulse;
+                    ctx.strokeStyle = this.color;
+                    ctx.lineWidth = isMobile ? 6 : 8;
+                    ctx.lineJoin = 'round';
+                    ctx.strokeText(line, 0, lineY);
+
+                    // 2. Lapisan Garis Neon Presisi
+                    ctx.shadowBlur = 4;
+                    ctx.strokeStyle = this.color;
+                    ctx.lineWidth = isMobile ? 3 : 4;
+                    ctx.strokeText(line, 0, lineY);
+
+                    // 3. INTI HURUF PUTIH SOLID MURNI: 100% SANGAT JELAS, BEBAS BUREM
+                    ctx.shadowBlur = 0;
+                    ctx.fillStyle = '#ffffff';
+                    ctx.fillText(line, 0, lineY);
+                });
+
+                ctx.restore();
+
+                // Gambar debu bintang berkilau melayang turun
+                if (this.embers.length > 0) {
+                    ctx.save();
+                    for (let i = 0; i < this.embers.length; i++) {
+                        const em = this.embers[i];
+                        if (em.alpha <= 0) continue;
+                        ctx.globalAlpha = em.alpha;
+                        ctx.fillStyle = em.color;
+                        ctx.beginPath();
+                        ctx.arc(em.x, em.y, em.size, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+                    ctx.restore();
+                }
+            }
+        }
+
+        // KELAS ROKET PETASAN: LINTASAN MELENGKUNG ANGGUN & PERLAMBATAN NATURAL (TIDAK KAKU)
+        class Rocket {
+            constructor(startX, targetX, targetY, textLines = null, customColor = null, onExplodeCallback = null) {
+                this.startX = startX !== undefined ? startX : (cw * (0.08 + Math.random() * 0.84));
+                this.startY = ch;
+                this.x = this.startX;
+                this.y = this.startY;
+                this.targetX = targetX !== undefined ? targetX : (this.x + (Math.random() - 0.5) * (cw * 0.20));
+                this.targetY = targetY !== undefined ? targetY : (ch * (0.12 + Math.random() * 0.40));
+                this.textLines = textLines;
+                this.onExplodeCallback = onExplodeCallback;
+                this.rocketColor = customColor || vibrantColors[Math.floor(Math.random() * vibrantColors.length)];
+                this.exploded = false;
+
+                // Durasi meluncur proporsional & lincah (~40-44 frame = ~0.68 detik)
+                this.totalFrames = Math.floor(Math.random() * 5 + 40);
+                this.currentFrame = 0;
+                // Kelengkungan lintasan alami roket kembang api (tidak kaku garis lurus)
+                this.arcCurve = (Math.random() - 0.5) * 32;
+                this.trail = [];
+                this.tailSparks = [];
+            }
+
+            update() {
+                this.currentFrame++;
+                const progress = Math.min(1.0, this.currentFrame / this.totalFrames);
+                
+                // Perlambatan natural di puncak (Ease-out: anggun melambat saat mendekati titik ledak)
+                const easeT = 1 - Math.pow(1 - progress, 2.4);
+                
+                // Lintasan melengkung halus & luwes
+                const sway = Math.sin(progress * Math.PI) * this.arcCurve;
+                this.x = this.startX + (this.targetX - this.startX) * easeT + sway;
+                this.y = this.startY + (this.targetY - this.startY) * easeT;
+
+                // Rekam jejak ekor roket
+                this.trail.push({ x: this.x, y: this.y });
+                if (this.trail.length > 9) this.trail.shift();
+
+                // Partikel percikan ekor berkilau yang melayang di belakang
+                if (Math.random() > 0.25) {
+                    this.tailSparks.push({
+                        x: this.x + (Math.random() - 0.5) * 3,
+                        y: this.y + (Math.random() * 6 + 2),
+                        vx: (Math.random() - 0.5) * 0.8,
+                        vy: Math.random() * 1.4 + 0.6,
+                        alpha: 1.0,
+                        size: Math.random() * 1.8 + 0.9,
+                        color: Math.random() > 0.3 ? this.rocketColor : '#ffffff'
+                    });
+                }
+
+                // Update percikan ekor
+                for (let i = this.tailSparks.length - 1; i >= 0; i--) {
+                    const sp = this.tailSparks[i];
+                    sp.x += sp.vx;
+                    sp.y += sp.vy;
+                    sp.alpha -= 0.055;
+                    if (sp.alpha <= 0) this.tailSparks.splice(i, 1);
+                }
+
+                if (this.currentFrame >= this.totalFrames) {
+                    this.explode();
+                }
+            }
+
+            draw() {
+                // 1. Gambar percikan ekor berkilau
+                if (this.tailSparks.length > 0) {
+                    ctx.save();
+                    for (let i = 0; i < this.tailSparks.length; i++) {
+                        const sp = this.tailSparks[i];
+                        ctx.globalAlpha = Math.max(0, sp.alpha);
+                        ctx.fillStyle = sp.color;
+                        ctx.beginPath();
+                        ctx.arc(sp.x, sp.y, sp.size, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
+                    ctx.restore();
+                }
+
+                // 2. Gambar garis ekor gradasi lembut
+                if (this.trail.length > 1) {
+                    ctx.save();
+                    for (let i = 1; i < this.trail.length; i++) {
+                        const ratio = i / this.trail.length;
+                        ctx.globalAlpha = ratio * 0.85;
+                        ctx.strokeStyle = this.rocketColor;
+                        ctx.lineWidth = ratio * 3.2;
+                        ctx.beginPath();
+                        ctx.moveTo(this.trail[i - 1].x, this.trail[i - 1].y);
+                        ctx.lineTo(this.trail[i].x, this.trail[i].y);
+                        ctx.stroke();
+                    }
+                    ctx.restore();
+                }
+
+                // 3. Kepala roket berkilau terang
+                ctx.save();
+                ctx.globalAlpha = 1.0;
+                ctx.shadowColor = this.rocketColor;
+                ctx.shadowBlur = 8;
+                ctx.fillStyle = '#ffffff';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, 2.6, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+            }
+
+            explode() {
+                this.exploded = true;
+
+                if (this.textLines && this.textLines.length > 0) {
+                    // MELEDAK MENJADI TEKS VEKTOR SUPER TAJAM & JELAS
+                    const tb = new TextBurst(this.x, this.y, this.textLines, this.rocketColor);
+                    textBursts.push(tb);
+
+                    if (this.onExplodeCallback) {
+                        this.onExplodeCallback(tb);
+                    }
+
+                    // Percikan ledakan kembang api spektakuler di sekeliling teks
+                    const count = 32;
+                    for (let i = 0; i < count; i++) {
+                        particles.push(new SparkParticle(this.x, this.y, this.rocketColor));
+                    }
+                } else {
+                    const count = Math.floor(Math.random() * 15 + 32);
+                    const baseColor = this.rocketColor;
+                    const secondColor = vibrantColors[Math.floor(Math.random() * vibrantColors.length)];
+                    for (let i = 0; i < count; i++) {
+                        const color = Math.random() > 0.4 ? baseColor : secondColor;
+                        particles.push(new SparkParticle(this.x, this.y, color));
+                    }
+                }
+            }
+        }
+
+        // KELAS PERCIKAN KEMBANG API RINGAN (HIGH FPS)
+        class SparkParticle {
+            constructor(x, y, color) {
+                this.x = x;
+                this.y = y;
+                this.color = color;
+                this.alpha = 1;
+                this.gravity = 0.08;
+                this.friction = 0.95;
+                this.size = Math.random() * 2.2 + 1.1;
+                this.decay = Math.random() * 0.018 + 0.016;
+
+                const angle = Math.random() * Math.PI * 2;
+                const speed = Math.random() * 7.0 + 2.0;
+                this.vx = Math.cos(angle) * speed;
+                this.vy = Math.sin(angle) * speed;
+            }
+
+            update() {
+                this.vx *= this.friction;
+                this.vy *= this.friction;
+                this.vy += this.gravity;
+                this.x += this.vx;
+                this.y += this.vy;
+                this.alpha -= this.decay;
+            }
+
+            draw() {
+                if (this.alpha <= 0) return;
+                ctx.globalAlpha = Math.max(0, this.alpha);
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        // LUNCURKAN GELOMBANG KEMBANG API REGULER
+        function launchFireworkBarrage(count = 2) {
+            for (let i = 0; i < count; i++) {
+                setTimeout(() => {
+                    const startX = cw * (0.08 + Math.random() * 0.84);
+                    const targetX = cw * (0.10 + Math.random() * 0.80);
+                    const targetY = ch * (0.10 + Math.random() * 0.42);
+                    rockets.push(new Rocket(startX, targetX, targetY));
+                }, i * 180);
+            }
+        }
+
+        // DETONASI KLIK / SENTUHAN LAYAR
+        window.addEventListener('pointerdown', (e) => {
+            if (isGiftOpened && e.target.tagName !== 'BUTTON') {
+                const count = 35;
+                const baseColor = vibrantColors[Math.floor(Math.random() * vibrantColors.length)];
+                for (let i = 0; i < count; i++) {
+                    particles.push(new SparkParticle(e.clientX, e.clientY, baseColor));
+                }
+                launchFireworkBarrage(1);
+            }
+        });
+
+        // LOOP RENDER UTAMA (60-120 FPS FLUID)
+        function animateFireworks() {
+            ctx.clearRect(0, 0, cw, ch);
+
+            if (isGiftOpened) {
+                // Batasi jumlah partikel latar agar tidak pernah ngeframe
+                if (particles.length > 160) {
+                    particles.splice(0, particles.length - 160);
+                }
+
+                for(let i = rockets.length - 1; i >= 0; i--) {
+                    rockets[i].update();
+                    rockets[i].draw();
+                    if(rockets[i].exploded) rockets.splice(i, 1);
+                }
+
+                for(let i = textBursts.length - 1; i >= 0; i--) {
+                    textBursts[i].update();
+                    textBursts[i].draw();
+                    if(textBursts[i].alpha <= 0 && textBursts[i].embers.length === 0) {
+                        textBursts.splice(i, 1);
+                    }
+                }
+
+                for(let i = particles.length - 1; i >= 0; i--) {
+                    particles[i].update();
+                    particles[i].draw();
+                    if(particles[i].alpha <= 0) particles.splice(i, 1);
+                }
+            }
+
+            requestAnimationFrame(animateFireworks);
+        }
+
+        // ================= ESTAFET KATA BERUNTUN RAME: MELAYANG TURUN, HILANG, LANJUT KE KATA SELANJUTNYA =================
+        let wishSequenceTimer = null;
+        let isWishSequenceActive = false;
+
+        function clearWishSequence() {
+            if (wishSequenceTimer) {
+                clearTimeout(wishSequenceTimer);
+                wishSequenceTimer = null;
+            }
+            isWishSequenceActive = false;
+        }
+
+        function launchSequentialWish(idx) {
+            isWishSequenceActive = true;
+
+            // 1. JIKA SELURUH 23 KATA UCAPAN SUDAH SELESAI SEMUA DILUNCURKAN:
+            if (idx >= allWishItems.length) {
+                wishSequenceTimer = setTimeout(() => {
+                    // Setelah kata terakhir selesai melayang turun & hilang, buka tombol surat
+                    revealMessageButton();
+                    isWishSequenceActive = false;
+                }, 2800);
+                return;
+            }
+
+            const item = allWishItems[idx];
+            const isMobile = cw < 640;
+
+            const targetPos = getNextScatteredPosition(idx, isMobile);
+            const rawX = cw * targetPos.x;
+            const rawY = ch * targetPos.y;
+
+            const res = getSafeTextCoordinates(rawX, rawY, item.lines, isMobile);
+            const startX = res.safeX + (Math.random() - 0.5) * 40;
+
+            // Luncurkan roket untuk kata saat ini (begitu mekar langsung melayang turun & memudar)
+            rockets.push(new Rocket(startX, res.safeX, res.safeY, item.lines, item.color));
+
+            // 2. RAME & STABIL: MUDAH DIBACA & MENGALIR KE KATA SELANJUTNYA
+            // Jeda peluncuran antar kata: ~780ms (di desktop) & ~840ms (di HP)
+            // Dengan jeda ini, mata punya waktu membaca nyaman setiap kata,
+            // dan di langit tetap ada 2-3 kata aktif bersamaan (rame & stabil)!
+            const nextLaunchInterval = isMobile ? 840 : 780;
+
+            wishSequenceTimer = setTimeout(() => {
+                launchSequentialWish(idx + 1);
+            }, nextLaunchInterval);
+        }
+
+        let isMessageButtonRevealed = false;
+        function revealMessageButton() {
+            if (isMessageButtonRevealed) return;
+            isMessageButtonRevealed = true;
+
+            // Ledakan kembang api grand finale penutup seluruh ucapan
+            launchFireworkBarrage(10);
+
+            // Buka / Munculkan tombol pesan "Lihat Pesan untuk Mba Diah" secara megah
+            setTimeout(() => {
+                actionBtnContainer.classList.remove('opacity-0', 'invisible', 'translate-y-10');
+                actionBtnContainer.classList.add('opacity-100', 'visible', 'translate-y-0');
+            }, 600);
+        }
+
+        // ================= FUNGSI BUKA KADO =================
+        function handleOpenGift() {
+            if(isGiftOpened) return;
+            isGiftOpened = true;
+
+            // Audio Unlock - Putar Lagu Pilihan Lokal
+            bgMusic.volume = 0.9;
+            bgMusic.play().then(() => {
+                isMusicPlaying = true;
+                musicStatusText.textContent = "🎵 Musik Aktif";
+            }).catch(() => {
+                playChimeMelody();
+                isMusicPlaying = true;
+                musicStatusText.textContent = "🎵 Melodi Aktif";
+            });
+            
+            musicIndicator.classList.remove('opacity-0', 'invisible');
+            musicIndicator.classList.add('opacity-100', 'visible');
+
+            introScreen.classList.add('fade-out');
+            
+            setTimeout(() => {
+                introScreen.style.display = 'none';
+                
+                // LEDAKAN BARRAGE PEMBUKA
+                launchFireworkBarrage(6);
+
+                // LANGSUNG MULAI ESTAFET KATA RAME & MELAYANG TURUN!
+                setTimeout(() => {
+                    launchSequentialWish(0);
+                }, 850);
+
+                // KEMBANG API LATAR BELAKANG RINGAN
+                setInterval(() => {
+                    if (rockets.length < 2) {
+                        rockets.push(new Rocket());
+                    }
+                }, 2800);
+
+            }, 800);
+        }
+
+        giftBtn.addEventListener('click', handleOpenGift);
+        giftBtn.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            handleOpenGift();
+        }, { passive: false });
+
+        // Tombol Lihat Pesan Spesial (Scroll ke Surat)
+        scrollBtn.addEventListener('click', () => {
+            mainContent.classList.remove('hidden');
+            mainContent.classList.add('block');
+            document.body.classList.remove('locked');
+            
+            // Sembunyikan tombol floating agar tidak menghalangi/menutupi isi surat di bawah
+            actionBtnContainer.classList.add('opacity-0', 'invisible', 'pointer-events-none');
+            actionBtnContainer.classList.remove('opacity-100', 'visible');
+
+            setTimeout(() => {
+                mainContent.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        });
+
+        // Tombol Nyalakan Rentetan Kembang Api & Ucapan Lagi di Surat
+        extraFireworksBtn.addEventListener('click', () => {
+            // 1. Scroll halus kembali ke atas (layar kembang api)
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // 2. Sembunyikan tombol scroll selama kembang api kata berjalan
+            actionBtnContainer.classList.add('opacity-0', 'invisible', 'pointer-events-none');
+            actionBtnContainer.classList.remove('opacity-100', 'visible');
+            isMessageButtonRevealed = false;
+
+            // 3. Bersihkan timer, teks lama & luncurkan barrage kembang api pembuka
+            clearWishSequence();
+            textBursts = [];
+            launchFireworkBarrage(6);
+
+            // 4. BUKA LAGI KEMBANG API DENGAN KATA-KATANYA DARI AWAL!
+            setTimeout(() => {
+                launchSequentialWish(0);
+            }, 850);
+        });
+
+        // Interaksi klik/tap foto polaroid agar goyang heboh (wobble jiggle)
+        document.querySelectorAll('.polaroid').forEach(card => {
+            card.addEventListener('click', () => {
+                card.classList.remove('wobble-click');
+                void card.offsetWidth; // trigger reflow
+                card.classList.add('wobble-click');
+            });
+        });
+
+        // Loop Kembang Api
+        animateFireworks();
+
+    </script>
+</body>
+</html>
