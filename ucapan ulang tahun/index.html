@@ -419,7 +419,7 @@
                 
                 <div class="message-text space-y-4 sm:space-y-6 text-left sm:text-center leading-relaxed">
                     <p class="font-medium text-slate-100 text-sm sm:text-base">
-                        Happy Birthday yaa Mba Diah! 🎉🎂 Selamat bertambah usia buat mentor paling keren dan paling asyik! Makasih banyak yaa Mba udah selalu sabar banget ngebimbing. Nggak pernah pelit ilmu, selalu santai tapi solutif tiap kali nemu problem kerjaan yang bikin pusing haha. Serius, punya mentor kayak Mba Diah tuh rezeki banget buat tim kita!
+                        Happy Birthday yaa Mba Diah! 🎉🎂 Selamat bertambah usia buat mentor paling keren dan paling asyik! Makasih banyak yaa Mba udah selalu sabar banget ngebimbing. Nggak pernah pelit ilmu, selalu santai tapi solutif tiap kali nemu problem kerjaan yang bikin pusing haha. Serius, punya mentor kayak Mba Diah tuh rezeki banget buat saya!
                     </p>
                     <p class="font-medium text-slate-100 text-sm sm:text-base">
                         Di hari yang spesial ini, doanya semoga Mba Diah selalu sehat, rezekinya makin lancar dan berkah, serta karirnya makin meroket naik! Semoga segala wishlist, goals, dan impian besar yang lagi Mba Diah perjuangkan bisa terwujud satu per satu dengan mulus. Pokoknya dimudahkan segala urusannya, baik kerjaan maupun rencana pribadi.
@@ -715,27 +715,27 @@
                 this.state = 'blooming';
                 this.age = 0;
                 
-                // KECEPATAN STABIL, NYAMAN & ANGGUN
+                // BUKA SATU-SATU DENGAN DELAY LEMBUT SAAT MENUTUP (SLOWMOTION DISSOLVE)
                 const isMobile = cw < 640;
-                this.vy = isMobile ? 0.70 : 0.85; // Kecepatan meluncur turun yang anggun, tenang & stabil
-                this.gravity = 0.003; // Gravitasi sangat lembut agar kecepatan konstan
+                this.vy = isMobile ? 0.65 : 0.80; // Meluncur turun anggun & stabil
+                this.gravity = 0.0025; // Gravitasi lembut
                 this.driftPhase = Math.random() * Math.PI * 2;
                 this.driftSpeedX = (Math.random() - 0.5) * 0.25;
-                this.rotation = (Math.random() - 0.5) * 0.015;
+                this.rotation = (Math.random() - 0.5) * 0.018;
                 this.rotSpeed = (Math.random() - 0.5) * 0.0008;
                 
-                // Durasi hidup bersih (~2.2 detik total agar tidak menumpuk di langit)
-                this.decayRate = 0.016; 
+                // PAS MENUTUPNYA ADA DELAY: Memudar perlahan & halus (~1.8 detik proses menutup)
+                this.decayRate = 0.009; 
                 
                 // Partikel debu bintang berkilau yang mengikuti jejak kata turun
                 this.embers = [];
-                const count = isMobile ? 16 : 24;
+                const count = isMobile ? 14 : 20;
                 for (let i = 0; i < count; i++) {
                     this.embers.push({
-                        x: this.x + (Math.random() - 0.5) * (isMobile ? 150 : 250),
-                        y: this.y + (Math.random() - 0.5) * 40,
-                        vx: (Math.random() - 0.5) * 0.7,
-                        vy: Math.random() * 0.8 + 0.35,
+                        x: this.x + (Math.random() - 0.5) * (isMobile ? 140 : 220),
+                        y: this.y + (Math.random() - 0.5) * 35,
+                        vx: (Math.random() - 0.5) * 0.6,
+                        vy: Math.random() * 0.7 + 0.30,
                         color: Math.random() > 0.3 ? this.color : '#ffffff',
                         size: Math.random() * 2.0 + 1.0,
                         alpha: 1.0
@@ -747,8 +747,8 @@
                 this.age++;
 
                 if (this.state === 'blooming') {
-                    // Mekar cepat & mulus (~10 frame = ~0.16 detik)
-                    this.scaleProgress += 0.12;
+                    // Mekar anggun & mulus (~10 frame = ~0.16 detik)
+                    this.scaleProgress += 0.11;
                     const p = Math.min(1.0, this.scaleProgress);
                     const popFactor = 1.0 + 0.06 * Math.sin(p * Math.PI);
                     this.scale = (0.35 + 0.65 * p) * popFactor;
@@ -759,16 +759,16 @@
                     }
                 }
 
-                // MELAYANG TURUN KE BAWAH DENGAN KECEPATAN STABIL & TENANG
+                // MELAYANG TURUN KE BAWAH DENGAN TENANG & ANGGUN
                 this.vy += this.gravity;
                 this.y += this.vy;
                 
                 // Ayunan angin horizontal lembut & luwes
-                this.x += Math.sin(this.age * 0.030 + this.driftPhase) * 0.40 + this.driftSpeedX;
+                this.x += Math.sin(this.age * 0.030 + this.driftPhase) * 0.35 + this.driftSpeedX;
                 this.rotation += this.rotSpeed;
 
-                // BERI JEDA MEMBACA LEBIH LAMA & SANTAI (FRAME > 65 = ~1.1 DETIK SOLID), LALU MEMUDAR PERLAHAN
-                if (this.age > 65) {
+                // TAMPIL TERANG SOLID (~1.2 DETIK), LALU PAS MENUTUP ADA JEDA DELAY MEMUDAR PELAN-PELAN
+                if (this.age > 70) {
                     this.alpha -= this.decayRate;
                 }
 
@@ -1134,10 +1134,9 @@
             // Luncurkan roket untuk kata saat ini (begitu mekar langsung melayang turun & memudar)
             rockets.push(new Rocket(startX, res.safeX, res.safeY, item.lines, item.color));
 
-            // 2. JEDA DELAY LEGA & SERASI: KATA TAMPIL BERGANTIAN SATU PER SATU DENGAN TENANG (TIDAK BERTUMPUK!)
-            // Jeda peluncuran antar kata: ~2200ms (di desktop) & ~2400ms (di HP)
-            // Dengan jeda ini, setiap kata tampil sendiri di langit, dibaca tuntas, lalu berganti anggun!
-            const nextLaunchInterval = isMobile ? 2400 : 2200;
+            // BUKA SATU PER SATU: Peluncuran mengalir teratur setiap ~1.4 - 1.5 detik
+            // Kata baru terbuka satu-satu, sementara kata sebelumnya sedang menutup dengan delay lembut
+            const nextLaunchInterval = isMobile ? 1500 : 1400;
 
             wishSequenceTimer = setTimeout(() => {
                 launchSequentialWish(idx + 1);
@@ -1164,8 +1163,10 @@
             if(isGiftOpened) return;
             isGiftOpened = true;
 
-            // Audio Unlock - Putar Lagu Pilihan Lokal
+            // 1. Audio Langsung Diputar Seketika di Detik ke-0 (Sinkron & Serasi)
+            bgMusic.currentTime = 0;
             bgMusic.volume = 0.9;
+            bgMusic.playbackRate = 1.0;
             bgMusic.play().then(() => {
                 isMusicPlaying = true;
                 musicStatusText.textContent = "🎵 Musik Aktif";
@@ -1178,27 +1179,31 @@
             musicIndicator.classList.remove('opacity-0', 'invisible');
             musicIndicator.classList.add('opacity-100', 'visible');
 
+            // 2. Kado langsung meledak dengan percikan spektakuler seketika di detik ke-0!
+            for (let i = 0; i < 40; i++) {
+                particles.push(new SparkParticle(cw / 2, ch / 2, vibrantColors[i % vibrantColors.length]));
+            }
+
+            // 3. Hilangkan layar kado dengan mulus
             introScreen.classList.add('fade-out');
-            
             setTimeout(() => {
                 introScreen.style.display = 'none';
-                
-                // LEDAKAN BARRAGE PEMBUKA
-                launchFireworkBarrage(6);
+            }, 600);
+            
+            // 4. Kembang api pembuka meletus serempak pas bersama alunan awal lagu!
+            launchFireworkBarrage(4);
 
-                // LANGSUNG MULAI ESTAFET KATA RAME & MELAYANG TURUN!
-                setTimeout(() => {
-                    launchSequentialWish(0);
-                }, 850);
+            // 5. Kata pertama meluncur pas setelah alunan pembuka (~0.9 detik)
+            setTimeout(() => {
+                launchSequentialWish(0);
+            }, 900);
 
-                // KEMBANG API LATAR BELAKANG RINGAN
-                setInterval(() => {
-                    if (rockets.length < 2) {
-                        rockets.push(new Rocket());
-                    }
-                }, 2800);
-
-            }, 800);
+            // Kembang api latar belakang sangat ringan sesekali
+            setInterval(() => {
+                if (rockets.length < 2 && !isWishSequenceActive) {
+                    rockets.push(new Rocket());
+                }
+            }, 3800);
         }
 
         giftBtn.addEventListener('click', handleOpenGift);
